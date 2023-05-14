@@ -1,9 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
+import "./YouTubeBox.css";
 
 function YouTubeBox({ initialPosition }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
+  const [youtubeLink, setYouTubeLink] = useState("https://www.youtube.com/embed/d9YM_9CVmtc");
+
+  const youtubeLinks = [
+    "https://www.youtube.com/embed/d9YM_9CVmtc",
+    "https://www.youtube.com/embed/rJTw_LmDS4Y",
+    "https://www.youtube.com/embed/kw7NotzRtBs"
+  ]
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -46,11 +54,18 @@ function YouTubeBox({ initialPosition }) {
     left: position.x + 'px',
     top: position.y + 'px',
     borderRadius: '15px',
-    width: '500px',
-    height: '350px',
+    width: '485px',
+    height: '328px',
     backgroundColor: '#D9D9D9',
     cursor: isDragging ? 'move' : 'default',
+    display: 'flex',
+    flexDirection: 'column'
   };
+
+const changeYouTubeLink = (num) => {
+    setYouTubeLink(youtubeLinks[num]);
+}
+
 
   return (
     <div
@@ -60,7 +75,19 @@ function YouTubeBox({ initialPosition }) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/d9YM_9CVmtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="youtubeFrame"  src={youtubeLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        <div id="lofi-circle-container">
+            <img className="lofi-circle" src="./lofi0.png" onClick={() => changeYouTubeLink(0)}/>
+            <img className="lofi-circle" src="./lofi1.png" onClick={() => changeYouTubeLink(1)}/>
+            <img className="lofi-circle" src="./lofi2.png" onClick={() => changeYouTubeLink(2)}/>
+            <img className="lofi-circle" src="./lofi3.png" />
+            <img className="lofi-circle" src="./lofi4.png" />
+            <img className="lofi-circle" src="./lofi5.png" />
+            <img className="lofi-circle" src="./lofi6.png" />
+            <img className="lofi-circle" src="./lofi7.png" />
+            
+            <img className="lofi-circle" src="./lofi1.png" />
+        </div>
     </div>
   );
 }
