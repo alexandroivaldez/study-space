@@ -1,5 +1,18 @@
 .appSpace-container {
-    border: 1px solid green;
+    border: 4px solid green;
     height: 100vh;
     width: 95%;
-}
+    position: relative;
+    background-color: lightblue;
+  }
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    cursor: move;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
