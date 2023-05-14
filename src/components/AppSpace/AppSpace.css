@@ -1,9 +1,10 @@
-.appSpace-container {
+.App {
     border: 4px solid green;
     height: 100vh;
-    width: 95%;
+    width: 100%;
     position: relative;
     background-color: lightblue;
+    
   }
 
   .box {
