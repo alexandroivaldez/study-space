@@ -48,7 +48,7 @@ function YouTubeBox({ initialPosition }) {
     borderRadius: '15px',
     width: '500px',
     height: '350px',
-    backgroundColor: 'red',
+    backgroundColor: '#D9D9D9',
     cursor: isDragging ? 'move' : 'default',
   };
 

@@ -6,12 +6,6 @@ function Menu() {
 
     const iconColor = "black";
 
-    const openApp = () => {
-        
-    }
-
-
-
     return (
         <div className='menu-container'>
             <Icon icon="bi:paint-bucket" color={iconColor} width="50" height="50" />

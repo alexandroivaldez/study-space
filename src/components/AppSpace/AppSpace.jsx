@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Box from '../Box/Box';
+import YouTubeBox from '../YouTubeBox/YouTubeBox';
 import "./AppSpace.css"
 
 function AppSpace() {
@@ -7,7 +8,7 @@ function AppSpace() {
     <div className="App">
       <Box initialPosition={{ x: 50, y: 50 }} />
       <Box initialPosition={{ x: 200, y: 200 }} />
-      <Box initialPosition={{ x: 350, y: 350 }} />
+      <YouTubeBox initialPosition={{ x: 350, y: 350 }} />
     </div>
   );
 }
