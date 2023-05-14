@@ -28,8 +28,9 @@ function Box({ initialPosition }) {
   const handleMouseMove = (event) => {
     if (isDragging) {
       const appRect = document.body.getBoundingClientRect();
+      const containerRect = boxRef.current.parentNode.getBoundingClientRect();
       const boxRect = boxRef.current.getBoundingClientRect();
-      const maxX = appRect.width - boxRect.width;
+      const maxX = containerRect.width - boxRect.width;
       const maxY = appRect.height - boxRect.height;
       let newX = position.x + event.movementX;
       let newY = position.y + event.movementY;
@@ -39,7 +40,7 @@ function Box({ initialPosition }) {
       setPosition(newPosition);
     }
   };
-
+  
   const boxStyle = {
     position: 'absolute',
     left: position.x + 'px',
