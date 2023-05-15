@@ -1,0 +1,19 @@
+.color-circle {
+    width: 33px;
+    height: 33px;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+    margin: 5px;
+}
+
+.color-box {
+    display: flex;
+    width: 175px;
+    height: 180px;
+    flex-wrap: wrap;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}

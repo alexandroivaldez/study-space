@@ -4,12 +4,14 @@ import AppSpace from './components/AppSpace/AppSpace'
 import SideMenu from './components/SideMenu/SideMenu'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [backgroundColor, setBackgroundColor] = useState("lightcoral");
+
+  console.log(backgroundColor);
 
   return (
     <div className="app-container">
-      <SideMenu />
-      <AppSpace />
+      
+      <AppSpace backgroundColor={backgroundColor} setBackgroundColor={setBackgroundColor} />
     </div>
   )
 }

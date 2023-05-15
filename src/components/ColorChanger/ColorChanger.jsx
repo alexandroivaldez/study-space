@@ -1,17 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
-import "./YouTubeBox.css";
+import "./ColorChanger.css";
 
-function YouTubeBox({ initialPosition }) {
+function ColorChanger({ initialPosition, setBackgroundColor }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
-  const [youtubeLink, setYouTubeLink] = useState("https://www.youtube.com/embed/d9YM_9CVmtc");
 
-  const youtubeLinks = [
-    "https://www.youtube.com/embed/d9YM_9CVmtc",
-    "https://www.youtube.com/embed/rJTw_LmDS4Y",
-    "https://www.youtube.com/embed/kw7NotzRtBs"
-  ]
+  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9"];
+
+  const circlesArray = colors.map((str, index) => (
+    <div
+      key={index}
+      className="color-circle"
+      style={{backgroundColor: str}}
+      onClick={() => setBackgroundColor(str)}
+    ></div>
+  ));
+
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -53,20 +58,16 @@ function YouTubeBox({ initialPosition }) {
     position: 'absolute',
     left: position.x + 'px',
     top: position.y + 'px',
-    borderRadius: '15px',
-    width: '485px',
-    height: '328px',
+    width: '200px',
+    height: '250px',
     backgroundColor: '#D9D9D9',
+    borderRadius: "15px",
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
-    flexDirection: 'column',
+    alignItems: 'center',
+    flexDirection: "column",
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
-
-const changeYouTubeLink = (num) => {
-    setYouTubeLink(youtubeLinks[num]);
-}
-
 
   return (
     <div
@@ -76,21 +77,12 @@ const changeYouTubeLink = (num) => {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-        <iframe id="youtubeFrame"  src={youtubeLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-        <div id="lofi-circle-container">
-            <img className="lofi-circle" src="./lofi0.png" onClick={() => changeYouTubeLink(0)}/>
-            <img className="lofi-circle" src="./lofi1.png" onClick={() => changeYouTubeLink(1)}/>
-            <img className="lofi-circle" src="./lofi2.png" onClick={() => changeYouTubeLink(2)}/>
-            <img className="lofi-circle" src="./lofi3.png" />
-            <img className="lofi-circle" src="./lofi4.png" />
-            <img className="lofi-circle" src="./lofi5.png" />
-            <img className="lofi-circle" src="./lofi6.png" />
-            <img className="lofi-circle" src="./lofi7.png" />
-            
-            <img className="lofi-circle" src="./lofi1.png" />
-        </div>
+      <h2>Color Pallet</h2>
+      <div className='color-box'>
+        {circlesArray}
+      </div>
     </div>
   );
 }
 
-export default YouTubeBox;
+export default ColorChanger;

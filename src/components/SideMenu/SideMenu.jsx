@@ -2,9 +2,9 @@ import React from 'react'
 import Menu from '../Menu/Menu'
 import "./SideMenu.css"
 
-function SideMenu() {
+function SideMenu(props) {
   return (
-    <div className='sideMenu-container'>
+    <div className='sideMenu-container' style={{backgroundColor: props.backgroundColor}}>
         <Menu />
     </div>
   )

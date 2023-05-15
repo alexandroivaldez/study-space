@@ -1,0 +1,25 @@
+#lofi-circle-container {
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lofi-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-left: 1px;
+    filter: none;
+}
+
+.lofi-circle:hover {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+#youtubeFrame {
+    width: 95%;
+    height: 315px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
