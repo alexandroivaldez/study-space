@@ -1,21 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ColorChanger.css";
 
-function ColorChanger({ initialPosition }) {
+function ColorChanger({ initialPosition, setBackgroundColor }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
 
-  const colors = ["red", "green", "blue", "yellow", "orange", "pink", "grey", "white","red", "green", "blue", "yellow", "orange", "pink", "grey", "white"];
+  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9"];
 
   const circlesArray = colors.map((str, index) => (
     <div
       key={index}
       className="color-circle"
       style={{backgroundColor: str}}
-      onClick={() => {
-        alert("Test!");
-      }}
+      onClick={() => setBackgroundColor(str)}
     ></div>
   ));
 
@@ -62,12 +60,13 @@ function ColorChanger({ initialPosition }) {
     top: position.y + 'px',
     width: '200px',
     height: '250px',
-    backgroundColor: 'grey',
+    backgroundColor: '#D9D9D9',
     borderRadius: "15px",
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
     alignItems: 'center',
-    flexDirection: "column"
+    flexDirection: "column",
+    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
 
   return (
@@ -78,7 +77,7 @@ function ColorChanger({ initialPosition }) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      <h2>Color Pallete</h2>
+      <h2>Color Pallet</h2>
       <div className='color-box'>
         {circlesArray}
       </div>

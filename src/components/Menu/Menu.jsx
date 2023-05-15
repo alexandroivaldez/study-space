@@ -2,7 +2,7 @@ import React from 'react'
 import "./Menu.css"
 import { Icon } from '@iconify/react';
 
-function Menu() {
+function Menu(props) {
 
     const iconColor = "black";
 

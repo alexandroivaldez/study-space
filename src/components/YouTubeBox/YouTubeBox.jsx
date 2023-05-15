@@ -59,7 +59,8 @@ function YouTubeBox({ initialPosition }) {
     backgroundColor: '#D9D9D9',
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
 
 const changeYouTubeLink = (num) => {
