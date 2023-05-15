@@ -1,0 +1,36 @@
+#timer {
+    font-size: 40px;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    gap: 10px;
+}
+
+#buttons-container button {
+    border: none;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+#buttons-container button:hover {
+    color: red;
+}
+
+#type-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#type-container button {
+    border: none;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+#type-container button:hover {
+    color: red;
+}
