@@ -7,7 +7,7 @@ function Menu(props) {
     const iconColor = "black";
 
     return (
-        <div className='menu-container'>
+        <div className='menu-container artStyle'>
             <Icon icon="bi:paint-bucket" color={iconColor} width="50" height="50" />
             <Icon icon="material-symbols:timer-outline" color={iconColor} width="50" height="50" />
             <Icon icon="ant-design:youtube-outlined" color={iconColor} width="50" height="50" />

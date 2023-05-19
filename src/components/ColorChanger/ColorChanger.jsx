@@ -6,7 +6,7 @@ function ColorChanger({ initialPosition, setBackgroundColor }) {
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
 
-  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9"];
+  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9","#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9"];
 
   const circlesArray = colors.map((str, index) => (
     <div
@@ -59,25 +59,29 @@ function ColorChanger({ initialPosition, setBackgroundColor }) {
     left: position.x + 'px',
     top: position.y + 'px',
     width: '200px',
-    height: '250px',
+    height: '260px',
     backgroundColor: '#D9D9D9',
     borderRadius: "15px",
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
     alignItems: 'center',
     flexDirection: "column",
+    justifyContent: "space-between",
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
 
   return (
     <div
-      className="box"
+      className="box artStyle"
       ref={boxRef}
       style={boxStyle}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      <h2>Color Pallet</h2>
+      <div className='tool-bar'>
+        <div className='x-box'><p>X</p></div>
+        <h2>Color Pallet</h2>
+      </div>
       <div className='color-box'>
         {circlesArray}
       </div>

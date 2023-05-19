@@ -5,21 +5,23 @@
 }
 
 .lofi-circle {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 100px;
-    margin-left: 1px;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
     filter: none;
 }
 
 .lofi-circle:hover {
-    filter: grayscale(100%);
-    transition: filter 0.3s ease-in-out;
+    border: 3px solid black;
+    transition: border 0.1s ease-in-out;
 }
 
 #youtubeFrame {
-    width: 95%;
+    width: 395px;
     height: 315px;
     border-radius: 15px;
     margin-top: 10px;
+    border: 3px solid #000000;
 }

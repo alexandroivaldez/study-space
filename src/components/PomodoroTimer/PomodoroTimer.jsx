@@ -108,21 +108,25 @@ function PomodoroTimer({ initialPosition }) {
     backgroundColor: '#D9D9D9',
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
+    justifyContent: "space-between",
     flexDirection: "column",
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
 
   return (
     <div
-      className="box"
+      className="box artStyle"
       ref={boxRef}
       style={boxStyle}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      <h3>Pomodoro Timer</h3>
+      <div className='tool-bar'>
+          <div className='x-box'><p>X</p></div>
+          <h2>Pomodoro Timer</h2>
+        </div>
       <div id="type-container">
-        <button onClick={handleStart}>Pomodoro</button>
+        <button onClick={handleStart}>Start</button>
         <button onClick={handleTimer5}>Short Break</button>
         <button onClick={handleBreak15}>Long Break</button>
       </div>

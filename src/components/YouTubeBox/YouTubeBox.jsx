@@ -54,7 +54,7 @@ function YouTubeBox({ initialPosition }) {
     left: position.x + 'px',
     top: position.y + 'px',
     borderRadius: '15px',
-    width: '485px',
+    width: '456px',
     height: '328px',
     backgroundColor: '#D9D9D9',
     cursor: isDragging ? 'move' : 'default',
@@ -70,12 +70,16 @@ const changeYouTubeLink = (num) => {
 
   return (
     <div
-      className="box"
+      className="box artStyle"
       ref={boxRef}
       style={boxStyle}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
+        <div className='tool-bar'>
+          <div className='x-box'><p>X</p></div>
+          <h2>Lofi Player</h2>
+        </div>
         <iframe id="youtubeFrame"  src={youtubeLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         <div id="lofi-circle-container">
             <img className="lofi-circle" src="./lofi0.png" onClick={() => changeYouTubeLink(0)}/>
