@@ -89,8 +89,6 @@ const changeYouTubeLink = (num) => {
             <img className="lofi-circle" src="./lofi4.png" />
             <img className="lofi-circle" src="./lofi5.png" />
             <img className="lofi-circle" src="./lofi6.png" />
-            <img className="lofi-circle" src="./lofi7.png" />
-            
             <img className="lofi-circle" src="./lofi1.png" />
         </div>
     </div>

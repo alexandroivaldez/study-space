@@ -2,17 +2,29 @@ import React from 'react'
 import "./Menu.css"
 import { Icon } from '@iconify/react';
 
-function Menu(props) {
+function Menu({isActive, setActive}) {
 
-    const iconColor = "black";
+    const handleClick = (index) => {
+        const newActive = [...isActive];
+        
+        if(isActive[index].item == 1){
+            newActive[index].item = 2;
+        } else {
+            newActive[index].item = 1;
+        }
+
+        setActive(newActive);
+    };
 
     return (
         <div className='menu-container artStyle'>
-            <Icon icon="bi:paint-bucket" color={iconColor} width="50" height="50" />
-            <Icon icon="material-symbols:timer-outline" color={iconColor} width="50" height="50" />
-            <Icon icon="ant-design:youtube-outlined" color={iconColor} width="50" height="50" />
-            <Icon icon="material-symbols:add-notes-outline-rounded" color={iconColor} width="50" height="50" />
-            <Icon icon="icons8:todo-list" color={iconColor} width="50" height="50" />
+            <Icon onClick={() => handleClick(0)} value="timer" className="menuItem" icon="material-symbols:timer-outline"  width="50" height="50" />
+            <Icon onClick={() => handleClick(1)} value="youtube" className="menuItem" icon="ant-design:youtube-outlined"  width="50" height="50" />
+            <Icon onClick={() => handleClick(2)} value="colorPallet" className="menuItem" icon="bi:paint-bucket" width="50" height="50" />
+            
+            
+            <Icon value="notes" className="menuItem" icon="material-symbols:add-notes-outline-rounded"  width="50" height="50" />
+            <Icon value="todo" className="menuItem" icon="icons8:todo-list"  width="50" height="50" />
         </div>
     )
 }

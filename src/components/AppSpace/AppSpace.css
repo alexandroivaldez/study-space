@@ -5,13 +5,21 @@
     background-color: lightblue;
   }
 
-  .box {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    position: absolute;
-    cursor: move;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  cursor: move;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  display: flex;
+}
+
+.inactive {
+  display: none;
+}

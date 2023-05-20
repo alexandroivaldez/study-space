@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ColorChanger.css";
 
-function ColorChanger({ initialPosition, setBackgroundColor }) {
+function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
@@ -53,6 +53,8 @@ function ColorChanger({ initialPosition, setBackgroundColor }) {
       setPosition(newPosition);
     }
   };
+
+  const test = "flex";
   
   const boxStyle = {
     position: 'absolute',
@@ -63,7 +65,7 @@ function ColorChanger({ initialPosition, setBackgroundColor }) {
     backgroundColor: '#D9D9D9',
     borderRadius: "15px",
     cursor: isDragging ? 'move' : 'default',
-    display: 'flex',
+    display: test,
     alignItems: 'center',
     flexDirection: "column",
     justifyContent: "space-between",
@@ -79,7 +81,7 @@ function ColorChanger({ initialPosition, setBackgroundColor }) {
       onMouseMove={handleMouseMove}
     >
       <div className='tool-bar'>
-        <div className='x-box'><p>X</p></div>
+        <div className='x-box' onClick={onMenuItemClick}><p>X</p></div>
         <h2>Color Pallet</h2>
       </div>
       <div className='color-box'>

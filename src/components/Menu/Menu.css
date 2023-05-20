@@ -7,3 +7,20 @@
     margin-top: 15px;
     padding: 5px;
 }
+
+.menuItem {
+    color: black;
+}
+
+.menuItem:hover {
+    color: red;
+    transition: color 0.1s ease-in-out;
+}
+
+.active {
+    display: flex;
+}
+
+.inactive {
+    display: none;
+}
