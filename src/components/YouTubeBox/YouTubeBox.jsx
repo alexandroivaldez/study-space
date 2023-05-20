@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./YouTubeBox.css";
 
-function YouTubeBox({ initialPosition }) {
+function YouTubeBox({ initialPosition, isActive, setActive }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
@@ -12,6 +12,18 @@ function YouTubeBox({ initialPosition }) {
     "https://www.youtube.com/embed/rJTw_LmDS4Y",
     "https://www.youtube.com/embed/kw7NotzRtBs"
   ]
+
+  const handleClick = (index) => {
+    const newActive = [...isActive];
+    
+    if(isActive[index].item == 1){
+        newActive[index].item = 2;
+    } else {
+        newActive[index].item = 1;
+    }
+
+    setActive(newActive);
+};
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -77,7 +89,7 @@ const changeYouTubeLink = (num) => {
       onMouseMove={handleMouseMove}
     >
         <div className='tool-bar'>
-          <div className='x-box'><p>X</p></div>
+          <div className='x-box' onClick={() => handleClick(1)}><p>X</p></div>
           <h2>Lofi Player</h2>
         </div>
         <iframe id="youtubeFrame"  src={youtubeLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>

@@ -2,10 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import "./PomodoroTimer.css";
 
-function PomodoroTimer({ initialPosition }) {
+function PomodoroTimer({ initialPosition, isActive, setActive }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
+
+  const handleClick = (index) => {
+    const newActive = [...isActive];
+    
+    if(isActive[index].item == 1){
+        newActive[index].item = 2;
+    } else {
+        newActive[index].item = 1;
+    }
+
+    setActive(newActive);
+  };
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -122,7 +134,7 @@ function PomodoroTimer({ initialPosition }) {
       onMouseMove={handleMouseMove}
     >
       <div className='tool-bar'>
-          <div className='x-box'><p>X</p></div>
+          <div className='x-box' onClick={() => handleClick(0)}><p>X</p></div>
           <h2>Pomodoro Timer</h2>
         </div>
       <div id="type-container">

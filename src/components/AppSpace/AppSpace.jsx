@@ -18,15 +18,16 @@ function AppSpace(props) {
     <div className="App" style={{backgroundColor: props.backgroundColor}}>
       <SideMenu isActive={isActive} setActive={setActive} backgroundColor={props.backgroundColor} />
       <div className={isActive[0].item == 1 ? "active" : "inactive"}>
-        <PomodoroTimer initialPosition={{ x: 400, y: 50 }} />
+        <PomodoroTimer isActive={isActive} setActive={setActive} initialPosition={{ x: 400, y: 50 }} />
       </div>
       <div className={isActive[1].item == 1 ? "active" : "inactive"}>
-        <YouTubeBox initialPosition={{ x: 800, y: 200 }} />
+        <YouTubeBox isActive={isActive} setActive={setActive} initialPosition={{ x: 800, y: 200 }} />
       </div>
       <div className={isActive[2].item == 1 ? "active" : "inactive"}>
         <ColorChanger initialPosition={{ x: 100, y: 100 }}
         backgroundColor={props.backgroundColor}
         setBackgroundColor={props.setBackgroundColor}
+        isActive={isActive} setActive={setActive}
         />
       </div>
       {/* <Box initialPosition={{ x: 500, y: 200 }} /> */}

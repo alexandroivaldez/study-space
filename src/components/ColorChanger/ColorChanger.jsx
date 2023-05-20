@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ColorChanger.css";
 
-function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick }) {
+function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick, isActive, setActive }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
@@ -16,6 +16,18 @@ function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick }) 
       onClick={() => setBackgroundColor(str)}
     ></div>
   ));
+
+  const handleClick = (index) => {
+    const newActive = [...isActive];
+    
+    if(isActive[index].item == 1){
+        newActive[index].item = 2;
+    } else {
+        newActive[index].item = 1;
+    }
+
+    setActive(newActive);
+};
 
 
   useEffect(() => {
@@ -81,7 +93,7 @@ function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick }) 
       onMouseMove={handleMouseMove}
     >
       <div className='tool-bar'>
-        <div className='x-box' onClick={onMenuItemClick}><p>X</p></div>
+        <div className='x-box' onClick={() => handleClick(2)}><p>X</p></div>
         <h2>Color Pallet</h2>
       </div>
       <div className='color-box'>
