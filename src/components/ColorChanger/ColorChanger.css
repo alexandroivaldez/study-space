@@ -1,7 +1,7 @@
 .color-circle {
     width: 33px;
     height: 33px;
-    background-color: #D9D9D9;
+    background-color: white;
     border-radius: 100%;
     margin: 5px;
     border: 2px solid #000000;
@@ -13,7 +13,7 @@
     width: 175px;
     height: 220px;
     flex-wrap: wrap;
-    background-color: #D9D9D9;
+    background-color: white;
     border-radius: 15px;
     justify-content: center;
     align-items: center;

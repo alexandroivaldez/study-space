@@ -6,7 +6,7 @@ function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick, is
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
 
-  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9","#ddfffc", "#ffffe3", "#83adb5", "#c7bbc9"];
+  const colors = ["#a7a1ff", "#a5d9c6", "#fedee3", "#ffe599", "#ffb3ba", "#ffdfba", "	#ffffba", "	#baffc9","#bae1ff", "#ffdef2", "#f2e2ff", "#e2eeff", "#bada55", "#ffa500", "#ff7373", "#40e0d0","#ffc0cb", "#ffffe3", "#83adb5", "#666666"];
 
   const circlesArray = colors.map((str, index) => (
     <div
@@ -74,7 +74,7 @@ function ColorChanger({ initialPosition, setBackgroundColor, onMenuItemClick, is
     top: position.y + 'px',
     width: '200px',
     height: '260px',
-    backgroundColor: '#D9D9D9',
+    backgroundColor: 'white',
     borderRadius: "15px",
     cursor: isDragging ? 'move' : 'default',
     display: test,

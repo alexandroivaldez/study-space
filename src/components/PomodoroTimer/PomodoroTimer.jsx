@@ -117,7 +117,7 @@ function PomodoroTimer({ initialPosition, isActive, setActive }) {
     width: '300px',
     borderRadius: '15px',
     height: '125px',
-    backgroundColor: '#D9D9D9',
+    backgroundColor: 'white',
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
     justifyContent: "space-between",
