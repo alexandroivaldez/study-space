@@ -5,7 +5,7 @@ import "./AppSpace.css"
 import ColorChanger from '../ColorChanger/ColorChanger';
 import SideMenu from '../SideMenu/SideMenu';
 import PomodoroTimer from '../PomodoroTimer/PomodoroTimer';
-import StickyNoteContainer from '../StickyNoteContainer/StickyNoteContainer';
+import StickyNote from '../StickyNote/StickyNote';
 
 function AppSpace(props) {
 
@@ -31,7 +31,7 @@ function AppSpace(props) {
         isActive={isActive} setActive={setActive}
         />
       </div>
-      <StickyNoteContainer initialPosition={{ x: 500, y: 200 }} /> 
+      <StickyNote initialPosition={{ x: 500, y: 200 }} /> 
       {/* <Box initialPosition={{ x: 500, y: 200 }} /> */}
     </div>
   );

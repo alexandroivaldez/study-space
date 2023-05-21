@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Icon } from '@iconify/react';
 
-function StickyNoteContainer({ initialPosition }) {
+import "./StickyNote.css";
+
+function StickyNote({ initialPosition }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
+
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -45,23 +49,39 @@ function StickyNoteContainer({ initialPosition }) {
     position: 'absolute',
     left: position.x + 'px',
     top: position.y + 'px',
-    width: '100px',
-    height: '100px',
-    backgroundColor: 'red',
+    width: '200px',
+    height: '200px',
+    backgroundColor: '#6fa5fc',
     cursor: isDragging ? 'move' : 'default',
+    display: 'flex',
+    flexDirection: 'column',
+    border: '3px solid black',
+    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+  };
+
+  const [text, setText] = useState('');
+
+  const handleChange = (event) => {
+    setText(event.target.value);
   };
 
   return (
     <div
-      className="box"
+      className="box artStyle"
       ref={boxRef}
       style={boxStyle}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      component
+      <Icon id="trash-can" icon="akar-icons:trash-can" width={20} height={20} />
+      <textarea
+        className="sticky-note-text"
+        value={text}
+        onChange={handleChange}
+        placeholder="Write something..."
+      />
     </div>
   );
 }
 
-export default StickyNoteContainer;
+export default StickyNote;
