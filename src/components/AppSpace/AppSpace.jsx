@@ -6,6 +6,7 @@ import ColorChanger from '../ColorChanger/ColorChanger';
 import SideMenu from '../SideMenu/SideMenu';
 import PomodoroTimer from '../PomodoroTimer/PomodoroTimer';
 import StickyNote from '../StickyNote/StickyNote';
+import TodoList from '../TodoList/TodoList';
 
 function AppSpace(props) {
 
@@ -42,6 +43,7 @@ function AppSpace(props) {
         isActive={isActive} setActive={setActive}
         />
       </div>
+        <TodoList initialPosition={{ x: 500, y: 200 }} />
       {totalSticky.map((item) => {
         return <StickyNote totalSticky={totalSticky} setTotalSticky={setTotalSticky} randomNum={item.id} key={item.id} stickyId={item.id} initialPosition={{ x: 500, y: 200 }} /> 
       }, console.log(totalSticky))}
