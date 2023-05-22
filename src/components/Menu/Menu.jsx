@@ -2,7 +2,7 @@ import React from 'react'
 import "./Menu.css"
 import { Icon } from '@iconify/react';
 
-function Menu({isActive, setActive}) {
+function Menu({isActive, setActive, addSticky}) {
 
     const handleClick = (index) => {
         const newActive = [...isActive];
@@ -23,7 +23,7 @@ function Menu({isActive, setActive}) {
             <Icon onClick={() => handleClick(2)} value="colorPallet" className="menuItem" icon="bi:paint-bucket" width="50" height="50" />
             
             
-            <Icon value="notes" className="menuItem" icon="material-symbols:add-notes-outline-rounded"  width="50" height="50" />
+            <Icon onClick={addSticky} value="notes" className="menuItem" icon="material-symbols:add-notes-outline-rounded"  width="50" height="50" />
             <Icon value="todo" className="menuItem" icon="icons8:todo-list"  width="50" height="50" />
         </div>
     )

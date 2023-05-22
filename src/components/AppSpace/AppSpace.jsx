@@ -15,9 +15,23 @@ function AppSpace(props) {
     {item: 1}
   ]);
 
+  const [totalSticky, setTotalSticky] = useState([
+    {id: 0},
+    {id: 1},
+    {id: 2}
+  ]);
+
+  const addSticky = () => {
+    const newState = [...totalSticky];
+    let num = newState.length;
+    newState.push(`{id: ${num + 1}}`);
+    setTotalSticky(newState);
+    console.log("Sticky added!");
+  }
+
   return (
     <div className="App" style={{backgroundColor: props.backgroundColor}}>
-      <SideMenu isActive={isActive} setActive={setActive} backgroundColor={props.backgroundColor} />
+      <SideMenu addSticky={addSticky} isActive={isActive} setActive={setActive} backgroundColor={props.backgroundColor} />
       <div className={isActive[0].item == 1 ? "active" : "inactive"}>
         <PomodoroTimer isActive={isActive} setActive={setActive} initialPosition={{ x: 400, y: 50 }} />
       </div>
@@ -31,7 +45,10 @@ function AppSpace(props) {
         isActive={isActive} setActive={setActive}
         />
       </div>
-      <StickyNote initialPosition={{ x: 500, y: 200 }} /> 
+      {totalSticky.map((item) => {
+        return <StickyNote totalSticky={totalSticky} setTotalSticky={setTotalSticky} randomNum={Math.floor(Math.random() * totalSticky.length)} key={item.id} stickyId={item.id} initialPosition={{ x: 500, y: 200 }} /> 
+      })}
+      
       {/* <Box initialPosition={{ x: 500, y: 200 }} /> */}
     </div>
   );

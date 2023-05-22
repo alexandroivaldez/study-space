@@ -2,10 +2,10 @@ import React from 'react'
 import Menu from '../Menu/Menu'
 import "./SideMenu.css"
 
-function SideMenu({backgroundColor, isActive, setActive}) {
+function SideMenu({backgroundColor, isActive, setActive, addSticky}) {
   return (
     <div className='sideMenu-container' style={{backgroundColor: backgroundColor}}>
-        <Menu isActive={isActive} setActive={setActive} />
+        <Menu addSticky={addSticky} isActive={isActive} setActive={setActive} />
     </div>
   )
 }

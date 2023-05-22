@@ -3,11 +3,12 @@ import { Icon } from '@iconify/react';
 
 import "./StickyNote.css";
 
-function StickyNote({ initialPosition }) {
+function StickyNote({ initialPosition,randomNum, totalSticky, setTotalSticky, stickyId }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
 
+  const backgroundColors = ["#6fa5fc", "#fcfc6f", "#c893fa"];
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -51,7 +52,7 @@ function StickyNote({ initialPosition }) {
     top: position.y + 'px',
     width: '200px',
     height: '200px',
-    backgroundColor: '#6fa5fc',
+    backgroundColor: backgroundColors[randomNum],
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
     flexDirection: 'column',
@@ -65,6 +66,14 @@ function StickyNote({ initialPosition }) {
     setText(event.target.value);
   };
 
+  //Removes sticky from stack
+  const handleClick = (index) => {
+    const newActive = totalSticky.filter((item) => {
+      return item.id != index
+    });
+    setTotalSticky(newActive);
+  };
+
   return (
     <div
       className="box artStyle"
@@ -73,7 +82,7 @@ function StickyNote({ initialPosition }) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-      <Icon id="trash-can" icon="akar-icons:trash-can" width={20} height={20} />
+      <Icon onClick={() => handleClick(stickyId)} id="trash-can" icon="akar-icons:trash-can" width={20} height={20} />
       <textarea
         className="sticky-note-text"
         value={text}
