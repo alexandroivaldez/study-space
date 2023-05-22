@@ -8,7 +8,8 @@ function StickyNote({ initialPosition,randomNum, totalSticky, setTotalSticky, st
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
 
-  const backgroundColors = ["#6fa5fc", "#fcfc6f", "#c893fa"];
+  //Determine sticky note color
+  let backgroundColor = stickyId % 3 == 0 ? "#fcfc6f" : stickyId % 2 == 0 ? "#6fa5fc" : "#c893fa";
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -52,7 +53,7 @@ function StickyNote({ initialPosition,randomNum, totalSticky, setTotalSticky, st
     top: position.y + 'px',
     width: '200px',
     height: '200px',
-    backgroundColor: backgroundColors[randomNum],
+    backgroundColor: backgroundColor,
     cursor: isDragging ? 'move' : 'default',
     display: 'flex',
     flexDirection: 'column',

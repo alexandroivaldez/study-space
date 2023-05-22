@@ -16,17 +16,14 @@ function AppSpace(props) {
   ]);
 
   const [totalSticky, setTotalSticky] = useState([
-    {id: 0},
-    {id: 1},
-    {id: 2}
+    {id: 0}
   ]);
 
   const addSticky = () => {
     const newState = [...totalSticky];
     let num = newState.length;
-    newState.push(`{id: ${num + 1}}`);
+    newState.push({id: num + 1});
     setTotalSticky(newState);
-    console.log("Sticky added!");
   }
 
   return (
@@ -46,8 +43,8 @@ function AppSpace(props) {
         />
       </div>
       {totalSticky.map((item) => {
-        return <StickyNote totalSticky={totalSticky} setTotalSticky={setTotalSticky} randomNum={Math.floor(Math.random() * totalSticky.length)} key={item.id} stickyId={item.id} initialPosition={{ x: 500, y: 200 }} /> 
-      })}
+        return <StickyNote totalSticky={totalSticky} setTotalSticky={setTotalSticky} randomNum={item.id} key={item.id} stickyId={item.id} initialPosition={{ x: 500, y: 200 }} /> 
+      }, console.log(totalSticky))}
       
       {/* <Box initialPosition={{ x: 500, y: 200 }} /> */}
     </div>
