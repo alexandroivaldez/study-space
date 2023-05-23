@@ -1,0 +1,59 @@
+#todoToolBar {
+    position: relative;
+}
+
+#core-todo-container {
+    margin-top: 5px;
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+li {
+    background-color: rgb(212, 210, 210);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 5px;
+    border: 2px solid black;
+    gap: 5px;
+}
+
+#todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#inputBox {
+    width: 240px;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+#checkMark:hover {
+    color: red;
+    border-radius: 100px;
+}
+
+#input-container {
+    display: flex;
+    gap: 5px;
+}
+
+#input-container button {
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#input-container button:hover {
+    background-color: rgb(227, 227, 227);
+}

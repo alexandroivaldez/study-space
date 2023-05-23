@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import "./TodoList.css";
+import { Icon } from '@iconify/react';
 
 function TodoList({ initialPosition }) {
   const [position, setPosition] = useState(initialPosition);
@@ -13,10 +15,15 @@ function TodoList({ initialPosition }) {
   };
 
   const handleAddTodo = () => {
-    if (newTodo.trim() !== '') {
-      setTodos([...todos, newTodo]);
-      setNewTodo('');
+    if(todos.length == 6){
+      alert("5 Todo Limit. Please complete your other todos before adding more.");
+    } else {
+      if (newTodo.trim() !== '') {
+        setTodos([...todos, newTodo]);
+        setNewTodo('');
+      }
     }
+    
   };
 
   const handleDeleteTodo = (index) => {
@@ -66,14 +73,16 @@ function TodoList({ initialPosition }) {
     left: position.x + 'px',
     top: position.y + 'px',
     width: '400px',
-    height: '100px',
+    height: '320px',
     display: 'flex',
     flexDirection: "column",
     backgroundColor: 'white',
-    justifyContent: "space-between",
     cursor: isDragging ? 'move' : 'default',
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
   };
+
+  //list item color section
+  const colors = ["#91faad", "#fffd91", "#f59090", "#8ea3f5", "#df93fa", "#fac893"];
 
   return (
     <div
@@ -83,21 +92,24 @@ function TodoList({ initialPosition }) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
     >
-
-        <div className='tool-bar'>
-            <div className='x-box' onClick={() => handleClick(2)}><p>X</p></div>
-            <h2>Todo List</h2>
+      <div className='tool-bar' id="todoToolBar">
+          <div className='x-box' onClick={() => handleClick(2)}><p>X</p></div>
+          <h2>Todo List</h2>
+      </div>
+      <div id="core-todo-container">
+        <div id="input-container">
+          <input className="artStyle" maxlength="35" id="inputBox" type="text" value={newTodo} onChange={handleInputChange} placeholder="Enter todo here (35 character limit)"/>
+          <button className="artStyle" onClick={handleAddTodo}>Add Todo</button>
         </div>
-      <input type="text" value={newTodo} onChange={handleInputChange} />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            {todo}
-            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+        <ul id="todo-container">
+          {todos.map((todo, index) => (
+            <li key={index} style={{backgroundColor: colors[index]}}>
+              {todo}
+              <Icon id="checkMark" onClick={() => handleDeleteTodo(index)} icon="carbon:checkmark-outline" />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
