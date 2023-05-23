@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import "./TodoList.css";
 import { Icon } from '@iconify/react';
 
-function TodoList({ initialPosition }) {
+function TodoList({ initialPosition, isActive, setActive }) {
   const [position, setPosition] = useState(initialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const boxRef = useRef(null);
@@ -67,6 +67,18 @@ function TodoList({ initialPosition }) {
       setPosition(newPosition);
     }
   };
+
+  const handleClick = (index) => {
+    const newActive = [...isActive];
+    
+    if(isActive[index].item == 1){
+        newActive[index].item = 2;
+    } else {
+        newActive[index].item = 1;
+    }
+
+    setActive(newActive);
+  };
   
   const boxStyle = {
     position: 'absolute',
@@ -93,12 +105,12 @@ function TodoList({ initialPosition }) {
       onMouseMove={handleMouseMove}
     >
       <div className='tool-bar' id="todoToolBar">
-          <div className='x-box' onClick={() => handleClick(2)}><p>X</p></div>
+          <div className='x-box' onClick={() => handleClick(3)}><p>X</p></div>
           <h2>Todo List</h2>
       </div>
       <div id="core-todo-container">
         <div id="input-container">
-          <input className="artStyle" maxlength="35" id="inputBox" type="text" value={newTodo} onChange={handleInputChange} placeholder="Enter todo here (35 character limit)"/>
+          <input className="artStyle" maxLength="35" id="inputBox" type="text" value={newTodo} onChange={handleInputChange} placeholder="Enter todo here (35 character limit)"/>
           <button className="artStyle" onClick={handleAddTodo}>Add Todo</button>
         </div>
         <ul id="todo-container">

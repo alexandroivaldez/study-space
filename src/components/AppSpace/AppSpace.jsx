@@ -13,6 +13,7 @@ function AppSpace(props) {
   const [isActive, setActive] = useState([
     {item: 1},
     {item: 1},
+    {item: 1},
     {item: 1}
   ]);
 
@@ -43,7 +44,9 @@ function AppSpace(props) {
         isActive={isActive} setActive={setActive}
         />
       </div>
-        <TodoList initialPosition={{ x: 500, y: 200 }} />
+      <div className={isActive[3].item == 1 ? "active" : "inactive"}>
+        <TodoList initialPosition={{ x: 200, y: 500 }} isActive={isActive} setActive={setActive} />
+      </div>
       {totalSticky.map((item) => {
         return <StickyNote totalSticky={totalSticky} setTotalSticky={setTotalSticky} randomNum={item.id} key={item.id} stickyId={item.id} initialPosition={{ x: 500, y: 200 }} /> 
       }, console.log(totalSticky))}
