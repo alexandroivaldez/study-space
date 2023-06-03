@@ -6,8 +6,5 @@ This project offers a dedicated space featuring a range of useful widgets implem
 ## Live Demo
 [StudySpace](https://study-space-av.netlify.app/)
 
-## List of Widgets
-- Lo-Fi player
-- Pomodoro timer 
-- To-do list
-- Sticky notes
+## Figma
+[Figma Design](https://www.figma.com/file/5FAYb9KimqMjSgwHMJytRu/Untitled?type=design&t=woweIluQfvvDIjVc-1)
